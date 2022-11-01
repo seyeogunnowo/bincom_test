@@ -1,1 +1,17 @@
-{%extends 'core/layout.html'%} {%load static%} {%block body%} {%endblock%}
+{%extends 'core/layout.html'%} {%load static%} {%block body%} 
+<div class="centered_text">
+<h3>Welcome to the <b style="color: rgb(0, 92, 0);">Bincom Test</b></h3>
+<p>For Seye Ogunnowo</p>
+<div class="card card-body card_shadow main_card">
+    <h5>What would you like to do?</h5>
+    <br>
+    <a class="main_button btn btn-secondary" href="{%url 'core:polling_units_results'%}"><i class="fa-solid fa-square-poll-vertical"></i> View Results by Polling Unit</a>
+    <br>
+    <a class="main_button btn btn-secondary" href="{%url 'core:lga_sum_results'%}"><i class="fa-solid fa-building-columns"></i> View Results by LGA</a>
+    <br>
+    <a class="main_button btn btn-secondary" href="{%url 'core:create_polling_unit'%}"><i class="fa-solid fa-check-to-slot"></i> Create New Polling Unit</a>
+    <br>
+</div>
+</div>
+
+{%endblock%}

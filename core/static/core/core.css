@@ -1,11 +1,34 @@
 .logo {
-  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+  width: 11%;
 }
 .main_card {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px;
 }
 .centered_text {
   text-align: center;
+}
+.card_shadow{
+  box-shadow: 0px 0px 15px -2px rgba(166,166,166,0.75);
+  -webkit-box-shadow: 0px 0px 15px -2px rgba(166,166,166,0.75);
+  -moz-box-shadow: 0px 0px 15px -2px rgba(166,166,166,0.75);
+}
+.main_button{
+  padding: 2%;
+  color: white;
+  width: 70%;
+  border: none;
+  font-size: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgb(0, 114, 72);
+}
+.fa-solid{
+  margin-right: 20px;
+  font-size: 30px;
 }

@@ -1,0 +1,13 @@
+.logo {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+}
+.main_card {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.centered_text {
+  text-align: center;
+}

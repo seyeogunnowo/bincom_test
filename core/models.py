@@ -101,12 +101,17 @@ class States(models.Model):
 
 class Ward(models.Model):
     uniqueid = models.IntegerField(blank=True, null=True)
-    ward_id = models.IntegerField(blank=True, null=True)
+    ward_id = models.IntegerField(blank=True, primary_key=True)
     ward_name = models.CharField(max_length=2000, blank=True, null=True)
     lga_id = models.IntegerField(blank=True, null=True)
     ward_description = models.CharField(max_length=2000, blank=True, null=True)
     entered_by_user = models.CharField(max_length=2000, blank=True, null=True)
     date_entered = models.CharField(max_length=2000, blank=True, null=True)
     user_ip_address = models.CharField(max_length=2000, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'ward'
+
 
 
