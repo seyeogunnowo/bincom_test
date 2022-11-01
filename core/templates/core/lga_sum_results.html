@@ -1,0 +1,26 @@
+{%extends 'core/layout.html'%} {%load static%} {%block body%}
+<div class="card card-body main_card">
+  <h4 class="centered_text">Select an LGA to View its Summed Results</h4>
+  <br />
+  <form
+    action="{%url 'core:lga_sum_results'%}"
+    class="pu_results_form"
+    method="post"
+  >
+    {%csrf_token%}
+    <select name="lga" id="" class="form-select select_pu">
+      {%for lga in all_lga%}
+      <option value="{{lga.lga_id}}">{{lga.lga_name}} ({{lga.lga_id}})</option>
+      {%endfor%}
+    </select>
+  </form>
+  <div class="card">
+    <p>{{sum_score}}</p>
+  </div>
+</div>
+<script>
+  document.querySelector(".select_pu").addEventListener("change", () => {
+    document.querySelector(".pu_results_form").submit();
+  });
+</script>
+{%endblock%}

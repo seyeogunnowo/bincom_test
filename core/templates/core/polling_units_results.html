@@ -1,0 +1,43 @@
+{%extends 'core/layout.html'%} {%load static%} {%block body%}
+<div class="card card-body main_card">
+  <h4 class="centered_text">Select a Polling Unit to View Results</h4>
+  <br />
+  <form
+    action="{%url 'core:polling_units_results'%}"
+    class="pu_results_form"
+    method="post"
+  >
+    {%csrf_token%}
+    <select name="polling_unit" id="" class="form-select select_pu">
+      {%for unit in all_pu%}
+      <option value="{{unit.uniqueid}}">{{unit.polling_unit_name}}</option>
+      {%endfor%}
+    </select>
+  </form>
+  <div class="card">
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Party Abbreviation</td>
+          <td>Party Score</td>
+        </tr>
+      </thead>
+      <tbody>
+        {%for item in pu_results%} 
+        {%if item.polling_unit_uniqueid == selected_pu_id%}
+        <tr>
+          <td>{{item.party_abbreviation}}</td>
+          <td>{{item.party_score}}</td>
+        </tr>
+        {%endif%} 
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  document.querySelector(".select_pu").addEventListener("change", () => {
+    document.querySelector(".pu_results_form").submit();
+  });
+</script>
+{%endblock%}
