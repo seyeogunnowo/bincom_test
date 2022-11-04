@@ -61,7 +61,7 @@ class Lga(models.Model):
     user_ip_address = models.CharField(max_length=2000, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'lga'
 
 class Party(models.Model):
@@ -70,13 +70,13 @@ class Party(models.Model):
     partyname = models.CharField(max_length=2000, blank=True, null=True)
     
     class Meta:
-        managed = False
+        managed = True
         db_table = 'party'
 
 
 class PollingUnit(models.Model):
-    uniqueid = models.IntegerField(blank=True, null=True)
-    polling_unit_id = models.IntegerField(blank=True, primary_key=True)
+    uniqueid = models.IntegerField(blank=True, primary_key=True)
+    polling_unit_id = models.IntegerField(blank=True, null=True)
     ward_id = models.IntegerField(blank=True, null=True)
     lga_id = models.IntegerField(blank=True, null=True)
     uniquewardid = models.IntegerField(blank=True, null=True)
@@ -90,7 +90,7 @@ class PollingUnit(models.Model):
     user_ip_address = models.CharField(max_length=2000, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'polling_unit'
 
 
@@ -110,7 +110,7 @@ class Ward(models.Model):
     user_ip_address = models.CharField(max_length=2000, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ward'
 
 

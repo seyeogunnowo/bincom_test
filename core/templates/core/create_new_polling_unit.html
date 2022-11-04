@@ -1,46 +1,66 @@
 {%extends 'core/layout.html'%} {%load static%} {%block body%}
 <div class="card card_shadow card-body main_card">
-    <h4 class="centered_text">Create a New Polling Unit</h4>
-    <div class="card card-body">
-        <form action="{%url 'core:create_polling_unit'%}" method="post">
-          {%csrf_token%}
-            <input type="text" class="form-control" name="name" id="" placeholder="Title">
-            <br>
-            <textarea name="description" id="" class="form-control" rows="4" placeholder="Description of Polling Unit"></textarea>
-            <br>
-            <input type="latitide" class="form-control" name="latitude" id="" placeholder="Latitude">
-            <br>
-            <input type="longitude" class="form-control" name="longitude" id="" placeholder="Longitude">
-            <br>
-            <select name="ward" id="" class="form-select select_pu">                                                                               
-                <option value="none">Select the ward</option>
-                {%for ward in all_wards%}
-                <option value="{{ward.ward_id}}">{{ward.ward_name}}</option>
-                {%endfor%}
-              </select>
-              <br>
-              <select name="lga" id="" class="form-select select_pu">
-                <option value="none">Select the LGA</option>
-                {%for lga in all_lga%}
-                <option value="{{lga.lga_id}}">{{lga.lga_name}}</option>
-                {%endfor%}
-              </select>
-              <br>
-              <div style="">
-              <b>Enter in the tallies for the parties in this Polling Unit.</b>
-              <input type="number" class="form-control" name="pdp" id="" placeholder="PDP Tally" value="0">
-              <input type="number" class="form-control" name="dpp" id="" placeholder="DPP Tally" value="0">
-              <input type="number" class="form-control" name="acn" id="" placeholder="ACN Tally" value="0">
-              <input type="number" class="form-control" name="ppa" id="" placeholder="PPA Tally" value="0">
-              <input type="number" class="form-control" name="cdc" id="" placeholder="CDC Tally" value="0">
-              <input type="number" class="form-control" name="jp" id="" placeholder="JP Tally" value="0">
-              <input type="number" class="form-control" name="anpp" id="" placeholder="ANPP Tally" value="0">
-              <input type="number" class="form-control" name="labour" id="" placeholder="LABOUR Tally" value="0">
-              <input type="number" class="form-control" name="cpp" id="" placeholder="CPP Tally" value="0">
-              </div>
-              <br>
-            <button type="submit" style='width: 100%; background: rgb(1, 119, 74);' class="btn btn-secondary">CREATE POLLING UNIT</button>
-        </form>
-    </div>
+  <h4 class="centered_text">Create a New Polling Unit</h4>
+  <div class="card card-body">
+    <form action="{%url 'core:create_polling_unit'%}" method="post">
+      {%csrf_token%}
+      <input type="text" class="form-control" name="name" id="" placeholder="Title">
+      <br>
+      <textarea name="description" id="" class="form-control" rows="4"
+        placeholder="Description of Polling Unit"></textarea>
+      <br>
+      <input type="latitide" class="form-control" name="latitude" id="" placeholder="Latitude">
+      <br>
+      <input type="longitude" class="form-control" name="longitude" id="" placeholder="Longitude">
+      <br>
+      <select name="ward" id="" class="form-select select_pu">
+        <option value="none">Select the ward</option>
+        {%for ward in all_wards%}
+        <option value="{{ward.ward_id}}">{{ward.ward_name}}</option>
+        {%endfor%}
+      </select>
+      <br>
+      <select name="lga" id="" class="form-select select_pu">
+        <option value="none">Select the LGA</option>
+        {%for lga in all_lga%}
+        <option value="{{lga.lga_id}}">{{lga.lga_name}}</option>
+        {%endfor%}
+      </select>
+      <br>
+      <div style="">
+        <b>Enter in the tallies for the parties in this Polling Unit.</b>
+        <br>
+        <label for="PDP">PDP</label>
+        <input type="number" class="form-control" name="pdp" id="" placeholder="PDP Tally" value="0">
+        <br>
+        <label for="DPP">DPP</label>
+        <input type="number" class="form-control" name="dpp" id="" placeholder="DPP Tally" value="0">
+        <br>
+        <label for="ACN">ACN</label>
+        <input type="number" class="form-control" name="acn" id="" placeholder="ACN Tally" value="0">
+        <br>
+        <label for="PPA">PPA</label>
+        <input type="number" class="form-control" name="ppa" id="" placeholder="PPA Tally" value="0">
+        <br>
+        <label for="CDC">CDC</label>
+        <input type="number" class="form-control" name="cdc" id="" placeholder="CDC Tally" value="0">
+        <br>
+        <label for="JP">JP</label>
+        <input type="number" class="form-control" name="jp" id="" placeholder="JP Tally" value="0">
+        <br>
+        <label for="ANPP">ANPP</label>
+        <input type="number" class="form-control" name="anpp" id="" placeholder="ANPP Tally" value="0">
+        <br>
+        <label for="LABOUR">LABOUR</label>
+        <input type="number" class="form-control" name="labour" id="" placeholder="LABOUR Tally" value="0">
+        <br>
+        <label for="CPP">CPP</label>
+        <input type="number" class="form-control" name="cpp" id="" placeholder="CPP Tally" value="0">
+      </div>
+      <br>
+      <button type="submit" style='width: 100%; background: rgb(1, 119, 74);' class="btn btn-secondary">CREATE POLLING
+        UNIT</button>
+    </form>
+  </div>
 </div>
 {%endblock%}

@@ -41,7 +41,7 @@ def lga_sum_results(request):
 
 def create_polling_unit(request):
     if request.method=='POST':
-        randomly_generated_unique_id=random.randint(1000, 10000)
+        randomly_generated_unique_id=random.randint(9000, 1000000)
         PollingUnit.objects.create(uniqueid=randomly_generated_unique_id,polling_unit_name=request.POST['name'], polling_unit_description=request.POST['description'], lat=request.POST['latitude'], long=request.POST['longitude'], ward_id=request.POST['ward'], lga_id=request.POST['lga'])
         AnnouncedPuResults.objects.create(polling_unit_uniqueid=randomly_generated_unique_id, party_abbreviation='PDP', party_score=request.POST['pdp'])
         AnnouncedPuResults.objects.create(polling_unit_uniqueid=randomly_generated_unique_id, party_abbreviation='DPP', party_score=request.POST['dpp'])

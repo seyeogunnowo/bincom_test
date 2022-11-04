@@ -2,11 +2,7 @@
 <div class="card card-body main_card card_shadow">
   <h4 class="centered_text">Select a Polling Unit to View Results</h4>
   <br />
-  <form
-    action="{%url 'core:polling_units_results'%}"
-    class="pu_results_form"
-    method="post"
-  >
+  <form action="{%url 'core:polling_units_results'%}" class="pu_results_form" method="post">
     {%csrf_token%}
     <select name="polling_unit" id="" class="form-select select_pu">
       <option value="none">Select the Polling Unit</option>
@@ -18,7 +14,7 @@
   <div class="card">
     {%for unit in all_pu%}
     {%if unit.uniqueid == selected_pu_id%}
-    <h6>{{unit.polling_unit_name}}</h6>
+    <h6 style="padding: 20px;">{{unit.polling_unit_name.upper}}</h6>
     {%endif%}
     {%endfor%}
     <table class="table">
@@ -29,13 +25,13 @@
         </tr>
       </thead>
       <tbody>
-        {%for item in pu_results%} 
+        {%for item in pu_results%}
         {%if item.polling_unit_uniqueid == selected_pu_id%}
         <tr>
           <td>{{item.party_abbreviation}}</td>
           <td>{{item.party_score}}</td>
         </tr>
-        {%endif%} 
+        {%endif%}
         {%endfor%}
       </tbody>
     </table>
@@ -43,10 +39,9 @@
 </div>
 <script>
   document.querySelector(".select_pu").addEventListener("change", () => {
-    if (document.querySelector('.select_pu').value != 'none'){
+    if (document.querySelector('.select_pu').value != 'none') {
       document.querySelector(".pu_results_form").submit();
     }
   });
 </script>
 {%endblock%}
-
